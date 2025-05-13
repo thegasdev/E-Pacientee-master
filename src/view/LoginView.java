@@ -12,12 +12,12 @@ import javafx.stage.Stage;
 import model.UserService;
 
 public class LoginView {
-    private static final UserService userService = new UserService(); // Mantém como estava
-    private final LoginController controller = new LoginController(userService); // Mantém como estava
+    private static final UserService userService = new UserService();
+    private final LoginController controller = new LoginController(userService);
 
     public LoginView() {}
-    // O construtor public LoginView(UserService service) {} pode ser removido se não for usado.
-    // A instância estática userService é a que está sendo usada pelo controller.
+    public LoginView(UserService service) {}
+
 
     public void start(Stage stage) {
         // --- Logo ---
