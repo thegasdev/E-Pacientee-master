@@ -1,0 +1,77 @@
+/* src/resources/styles/login-styles.css */
+
+.login-container {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #E0F2F7, #FFFFFF); /* Azul claro para branco */
+    /* Para um azul mais sólido no topo e branco embaixo:
+    -fx-background-color: linear-gradient(to bottom, #2980b9, #ffffff 50%);
+    */
+}
+
+#title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50; /* Azul escuro para o texto do título */
+    -fx-padding: 0 0 10px 0; /* Espaçamento abaixo do título */
+}
+
+.login-field {
+    -fx-font-size: 14px;
+    -fx-pref-height: 40px;
+    -fx-border-color: #B0BEC5; /* Cinza azulado claro para borda */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-prompt-text-fill: #78909C;
+}
+
+.login-field:focused {
+    -fx-border-color: #0078D7; /* Azul mais forte para borda quando focado */
+    -fx-background-color: #F0F8FF; /* Fundo levemente azulado ao focar */
+}
+
+.login-button {
+    -fx-background-color: #0078D7; /* Azul primário */
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 40px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Sombra suave */
+}
+
+.login-button:hover {
+    -fx-background-color: #005A9E; /* Azul um pouco mais escuro no hover */
+}
+
+.secondary-button {
+    -fx-background-color: #CFD8DC; /* Cinza azulado */
+    -fx-text-fill: #263238; /* Texto escuro */
+    -fx-font-size: 14px;
+    -fx-pref-height: 35px;
+    -fx-background-radius: 5px;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #B0BEC5;
+}
+
+.link-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #0066cc; /* Cor de link azul */
+    -fx-font-size: 12px;
+    -fx-underline: false; /* Por padrão, botões não têm sublinhado */
+    -fx-border-color: transparent;
+}
+
+.link-button:hover {
+    -fx-underline: true; /* Sublinhado ao passar o mouse */
+    -fx-text-fill: #004C99; /* Azul mais escuro no hover */
+}
+
+/* Estilização para o Alert de erro (opcional, se você descomentar no Java) */
+.error-alert .header-panel {
+    -fx-background-color: #FFEBEE; /* Fundo vermelho claro para o cabeçalho do alerta */
+}
+
+.error-alert .label {
+    -fx-text-fill: #B71C1C; /* Texto vermelho escuro */
+}
