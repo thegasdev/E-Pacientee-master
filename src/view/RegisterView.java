@@ -35,7 +35,7 @@ public class RegisterView {
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Senha");
 
-        TextArea termsTextArea = new TextArea("Bla bla bla... Estes são os termos de privacidade que você precisa aceitar para se registrar.");
+        TextArea termsTextArea = new TextArea("Em conformidade com a lei, todos os profissionais que têm acesso ao prontuário têm o dever de observar e respeitar os direitos fundamentais de liberdade, de intimidade e de privacidade dos pacientes, expressamente previstos no artigo 17 da LGPD, reforçando a previsão expressa da Constituição Federal, artigo 5º. e respeitando a Artigo 7º - Tratamento de Dados Pessoais: Fala sobre as bases legais que autorizam o tratamento de dados pessoais, como consentimento do titular, cumprimento de obrigação legal, execução de contrato, entre outros.e Para dados sensíveis, como prontuários médicos, o projeto adota as condições previstas no Artigo 11º, assegurando que a coleta e o uso dessas informações estejam vinculados à prestação de serviços de saúde e sempre com o devido consentimento ou outra base legal pertinente");
         termsTextArea.setEditable(false); // Para não permitir edição
         termsTextArea.setWrapText(true); // Para quebrar o texto em várias linhas
         termsTextArea.setMaxHeight(70); // Defina uma altura máxima para a área de texto
