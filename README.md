@@ -1,4 +1,5 @@
-ePacient 
+ePacient
+ 
 ePacient é uma aplicação desktop desenvolvida como um protótipo para o gerenciamento simplificado de informações de pacientes. O sistema permite que usuários se cadastrem, façam login e acessem funcionalidades como agendamento de consultas, visualização de exames e receitas.
 
 Este projeto foi desenvolvido como parte das atividades acadêmicas para as disciplinas de Programação Orientada a Objetos e Análise e Projeto de Sistemas.
