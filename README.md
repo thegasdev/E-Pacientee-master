@@ -106,5 +106,5 @@ Este projeto é um protótipo com grande potencial de evolução. Algumas melhor
 
 [ ] Refatoração: Melhorar a navegação entre telas para evitar a criação de múltiplas instâncias e gerenciar o estado da sessão de forma mais robusta.
 
-✒️ Autor
-[Seu Nome Completo] - seu-email@exemplo.com
+✒️ Autores
+Thiago Rizzo Padilha e Marcos Eduardo
