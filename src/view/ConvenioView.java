@@ -10,12 +10,19 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.User; // <- Importações necessárias
+import model.UserService; // <- Importações necessárias
 
 public class ConvenioView {
 
     private final ObservableList<String> farmaciasParceiras = FXCollections.observableArrayList();
+    private final User loggedInUser; // <- Adicionado
+    private final UserService userService; // <- Adicionado
 
-    public ConvenioView() {
+    // Construtor atualizado para receber o usuário e o serviço
+    public ConvenioView(User user, UserService service) {
+        this.loggedInUser = user;
+        this.userService = service;
         carregarFarmaciasParceiras();
     }
 
@@ -25,7 +32,6 @@ public class ConvenioView {
                 "Droga Raia",
                 "Ultrafarma",
                 "Pacheco");
-
     }
 
     public void start(Stage stage) {
@@ -36,8 +42,9 @@ public class ConvenioView {
         ListView<String> listaDeFarmacias = new ListView<>(farmaciasParceiras);
 
         Button voltarBtn = new Button("Voltar");
+        // Ação do botão "Voltar" CORRIGIDA
         voltarBtn.setOnAction(e -> {
-            new MainMenuView(null).start(stage); // Você pode precisar passar o UserService
+            new MainMenuView(loggedInUser, userService).start(stage);
         });
 
         VBox layout = new VBox(10, title, farmaciasLabel, listaDeFarmacias, voltarBtn);

@@ -77,8 +77,10 @@ public class ConsultView {
 
         // Botão para voltar ao menu principal
         Button voltarBtn = new Button("Voltar");
+        // Ação do botão "Voltar" CORRIGIDA
         voltarBtn.setOnAction(e -> {
-            new MainMenuView(null).start(stage);
+            // Pega os dados do controller para voltar ao menu principal
+            new MainMenuView(controller.getLoggedInUser(), controller.getUserService()).start(stage);
         });
 
         // Botão para sair

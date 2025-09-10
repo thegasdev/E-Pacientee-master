@@ -7,51 +7,42 @@ import view.ConsultView;
 import view.ConvenioView;
 import view.ExamesView;
 import view.LoginView;
-import view.MinhasInformacoesView; // Importe a nova View
+import view.MinhasInformacoesView;
 import view.ReceitasView;
-import java.util.List;
 
 public class MainMenuController {
 
     private final UserService userService;
+    private final User loggedInUser;
 
-    public MainMenuController(UserService userService) {
+    public MainMenuController(User user, UserService userService) {
+        this.loggedInUser = user;
         this.userService = userService;
     }
 
     public void goToConsultas(Stage stage) {
-        ConsultController consultController = new ConsultController(userService);
+        ConsultController consultController = new ConsultController(loggedInUser, userService);
         new ConsultView(consultController).start(stage);
     }
 
     public void goToExames(Stage stage) {
-        new ExamesView().start(stage);
+        new ExamesView(loggedInUser, userService).start(stage);
     }
 
     public void goToReceitas(Stage stage) {
-        new ReceitasView().start(stage);
+        new ReceitasView(loggedInUser, userService).start(stage);
     }
 
     public void goToConvenio(Stage stage) {
-        new ConvenioView().start(stage);
+        new ConvenioView(loggedInUser, userService).start(stage);
     }
 
     public void goToMinhasInformacoes(Stage stage) {
-        List<String> users = userService.getAllUsers();
-        if (!users.isEmpty()) {
-            User userDetails = userService.getUserDetails(users.get(0)); // Pega os detalhes do primeiro usuário
-            if (userDetails != null) {
-                new MinhasInformacoesView(userDetails).start(stage);
-            } else {
-                // Lógica caso os detalhes do usuário não sejam encontrados
-                LoginView.showError("Detalhes do usuário não encontrados.");
-            }
-        } else {
-            LoginView.showError("Nenhum usuário registrado.");
-        }
+        new MinhasInformacoesView(this.loggedInUser, this.userService).start(stage);
     }
 
     public void logout(Stage stage) {
-        new LoginView(userService).start(stage);
+        new LoginView().start(stage);
     }
-}
+
+} // <- CERTIFIQUE-SE DE QUE NADA FOI ESCRITO DEPOIS DESTA CHAVE

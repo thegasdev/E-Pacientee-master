@@ -12,7 +12,7 @@ public class RegisterController {
     }
 
     public void register(String username, String password, String nome, String sobrenome, String cpf, String gmail, Stage stage) {
-        if (userService.register(username, password, nome, sobrenome, cpf, gmail)) {
+        if (userService.register(username, password, nome, sobrenome, gmail)) {
             LoginView.showSuccess("Usuário registrado com sucesso!");
             new LoginView(userService).start(stage);
         } else {

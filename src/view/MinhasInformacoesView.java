@@ -8,13 +8,17 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.User;
+import model.UserService; // <- Importe o UserService
 
 public class MinhasInformacoesView {
 
     private final User user;
+    private final UserService userService; // <- Adicionado
 
-    public MinhasInformacoesView(User user) {
+    // Construtor atualizado para receber também o UserService
+    public MinhasInformacoesView(User user, UserService userService) {
         this.user = user;
+        this.userService = userService; // <- Adicionado
     }
 
     public void start(Stage stage) {
@@ -28,8 +32,9 @@ public class MinhasInformacoesView {
         Label usuarioLabel = new Label("Usuário: " + user.getUsername());
 
         Button voltarBtn = new Button("Voltar");
+        // Ação do botão "Voltar" CORRIGIDA
         voltarBtn.setOnAction(e -> {
-            new MainMenuView(null).start(stage); // Novamente, pode precisar passar o UserService
+            new MainMenuView(user, userService).start(stage);
         });
 
         VBox layout = new VBox(10, title, nomeLabel, sobrenomeLabel, cpfLabel, gmailLabel, usuarioLabel, voltarBtn);

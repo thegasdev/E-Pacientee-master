@@ -11,13 +11,20 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.User; // <- Importações necessárias
+import model.UserService; // <- Importações necessárias
 
 public class ExamesView {
 
     private final ExamesController controller;
     private final ObservableList<String> listaExames = FXCollections.observableArrayList();
+    private final User loggedInUser; // <- Adicionado
+    private final UserService userService; // <- Adicionado
 
-    public ExamesView() {
+    // Construtor atualizado para receber o usuário e o serviço
+    public ExamesView(User user, UserService service) {
+        this.loggedInUser = user;
+        this.userService = service;
         this.controller = new ExamesController();
         carregarExamesFicticios();
     }
@@ -26,7 +33,6 @@ public class ExamesView {
         listaExames.addAll("Hemograma Completo - 10/05/2025",
                 "Eletrocardiograma - 15/05/2025",
                 "Raio-X do Tórax - 20/05/2025");
-        // Em uma implementação real, você buscaria os exames do paciente.
     }
 
     public void start(Stage stage) {
@@ -37,8 +43,9 @@ public class ExamesView {
         ListView<String> listaDeExamesView = new ListView<>(listaExames);
 
         Button voltarBtn = new Button("Voltar");
+        // Ação do botão "Voltar" CORRIGIDA
         voltarBtn.setOnAction(e -> {
-            new MainMenuView(null).start(stage); // Você pode precisar passar o UserService
+            new MainMenuView(loggedInUser, userService).start(stage);
         });
 
         VBox layout = new VBox(10, title, examesLabel, listaDeExamesView, voltarBtn);

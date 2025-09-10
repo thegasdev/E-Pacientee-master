@@ -1,6 +1,8 @@
 package view;
 
 import controller.MainMenuController;
+import model.User; // <- LINHA QUE ESTAVA FALTANDO
+import model.UserService;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,23 +10,25 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.UserService;
 
 public class MainMenuView {
 
     private final MainMenuController controller;
     private final UserService userService;
+    private final User loggedInUser; // Este campo usa a classe 'User'
 
-    public MainMenuView(UserService userService) {
-        this.controller = new MainMenuController(userService);
+    // Este construtor usa a classe 'User'
+    public MainMenuView(User user, UserService userService) {
+        this.loggedInUser = user;
         this.userService = userService;
+        this.controller = new MainMenuController(user, userService);
     }
 
     public void start(Stage stage) {
         Label title = new Label("Menu Principal");
         title.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 20px;");
 
-        Button minhasInfoBtn = new Button("Minhas Informações"); // Primeiro botão
+        Button minhasInfoBtn = new Button("Minhas Informações");
         Button agendamentoBtn = new Button("Agendamento");
         Button examesBtn = new Button("Resultados de Exames");
         Button receitasBtn = new Button("Receitas");
@@ -38,7 +42,7 @@ public class MainMenuView {
         convenioBtn.setOnAction(e -> controller.goToConvenio(stage));
         logoutBtn.setOnAction(e -> controller.logout(stage));
 
-        VBox layout = new VBox(20, title, minhasInfoBtn, agendamentoBtn, examesBtn, receitasBtn, convenioBtn, logoutBtn); // Nova ordem dos botões
+        VBox layout = new VBox(20, title, minhasInfoBtn, agendamentoBtn, examesBtn, receitasBtn, convenioBtn, logoutBtn);
         layout.setAlignment(Pos.CENTER);
         layout.setPadding(new Insets(30));
         layout.setStyle("-fx-background-color: linear-gradient(to bottom, #e6f7ff, #ffffff);");
