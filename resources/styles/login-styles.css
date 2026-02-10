@@ -67,7 +67,7 @@
     -fx-text-fill: #004C99; /* Azul mais escuro no hover */
 }
 
-/* Estilização para o Alert de erro (opcional, se você descomentar no Java) */
+/* Estilização para o Alert de erro*/
 .error-alert .header-panel {
     -fx-background-color: #FFEBEE; /* Fundo vermelho claro para o cabeçalho do alerta */
 }
