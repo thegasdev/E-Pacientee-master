@@ -9,9 +9,10 @@ public class MainApp extends Application {
         new LoginView().start(primaryStage);
     }
 
+    // ...
     public static void main(String[] args) {
-        // Inicializa o banco de dados e cria a tabela se não existir
-        DatabaseManager.createNewTable();
+        // Mude para o novo método de inicialização
+        DatabaseManager.initializeDatabase();
 
         launch(args);
     }
